@@ -23,16 +23,20 @@ public class Labirinto {
 	private void InicioJogo() {
 		salaAtual = salas[0].getNumeroSala();
 		
-		
 		do {
 			Console.println("Você esta na sala " + salaAtual);
 			String texto = verificaSalaAtual(salaAtual);
 			Console.println(texto);
-			salaAtual ++;
-		} while (salaAtual <= 3);
+			
+			int t = Console.readInt("Para qual sala voce deseja se deslocar");
+			
+			salaAtual = t;
+			
+		} while (salaAtual > 0);
 		
 	}
 	private String verificaSalaAtual(int salaAtual) {
+		
 		salaAtual = salaAtual - 1;
 		String texto = "";
 		for (int i = 0; i < salas[salaAtual].sentido.length; i++) {
